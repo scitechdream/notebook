@@ -1,0 +1,2 @@
+Before we delve into code, there are a few issues we need to cover.
+Rest assured, after you get over the initial hurdle of doing it for the first time, it will be smooth sailing thereafter.
