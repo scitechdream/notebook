@@ -1,0 +1,13 @@
+* xil_printf问题
+在32位平台上，xil_printf无法打印u64值，有两种方法可以解决：
+1. 在字符串中转换值并显示结果
+#+begin_src c
+  char time[64];
+  sprintf(time, "%4.1f", (double)last_report_time); /* last_report_time为64位 */
+  xil_printf("%s sec\n\r",time);
+#+end_src
+2. 使用C语言<stdio.h>中的printf()函数。
+
+* 调用malloc函数出错
+  使用malloc函数动态分配内存空间，在合理值的范围内，当分配的空间大时分配不成功，分配空间小时则可以，这种情况一般是需动态分配的空间大于堆空间,可以通过以下方式解决
+  打开应用工程下的lscript.ld，将Heap Size设置为合适的大小，大于需分配的空间。
